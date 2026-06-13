@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TaskManagementAPI.Models
 
 namespace TaskManagementAPI.Controllers;
 
@@ -7,11 +8,15 @@ namespace TaskManagementAPI.Controllers;
 public class TaskController : ControllerBase{
     [HttpGet]
     public IActionResult GetTask(){
-        var tasks = new[]
+        var tasks = new List<TaskItem>
         {
-            new{
-                id = 1,
+            new(){
+                Id = 1,
                 Title = "Learn Reactjs"
+            },
+            new(){
+                Id = 2,
+                Title = "Learn Nodejs"
             }
         };
         return Ok(tasks);
